@@ -1,0 +1,145 @@
+1}write a c++ to display name ,roll number ,branch,section by using cout #include #include
+
+int main() { // Declare variables to store your information std::string name = "John Doe"; int rollNumber = 12345; std::string branch = "Computer Science"; char section = 'A';
+
+// Use std::cout to display the information
+std::cout << "Name: " << name << std::endl;
+std::cout << "Roll Number: " << rollNumber << std::endl;
+std::cout << "Branch: " << branch << std::endl;
+std::cout << "Section: " << section << std::endl;
+
+return 0;
+}
+
+2)write a c++ program to find biggest number among 3 numbers #include
+
+int main() { int num1, num2, num3;
+
+std::cout << "Enter three numbers: ";
+std::cin >> num1 >> num2 >> num3;
+
+if (num1 >= num2 && num1 >= num3) {
+    std::cout << "The biggest number is: " << num1 << std::endl;
+} else if (num2 >= num1 && num2 >= num3) {
+    std::cout << "The biggest number is: " << num2 << std::endl;
+} else {
+    std::cout << "The biggest number is: " << num3 << std::endl;
+}
+
+return 0;
+} 3) write a c++ program to implement arithmetic operations calculator by using switch case #include using namespace std;
+
+int main() { char op; double num1, num2;
+
+// Prompt the user to enter the operator
+cout << "Enter an operator (+, -, *, /): ";
+cin >> op; // Read the operator input from the user
+
+// Prompt the user to enter two numbers
+cout << "Enter two numbers: ";
+cin >> num1 >> num2; // Read the two numbers from the user
+
+// Use a switch statement to perform the selected operation
+switch(op) {
+    case '+':
+        cout << num1 << " + " << num2 << " = " << num1 + num2;
+        break; // Exit the switch after the case is handled
+    case '-':
+        cout << num1 << " - " << num2 << " = " << num1 - num2;
+        break;
+    case '*':
+        cout << num1 << " * " << num2 << " = " << num1 * num2;
+        break;
+    case '/':
+        // Check for division by zero
+        if (num2 != 0) {
+            cout << num1 << " / " << num2 << " = " << num1 / num2;
+        } else {
+            cout << "Error: Cannot divide by zero!";
+        }
+        break;
+    default:
+        // Display an error message if the operator is invalid
+        cout << "Error: Invalid operator!";
+        break;
+}
+
+cout << endl; // Add a newline at the end of the output
+return 0; // Return 0 to indicate successful execution
+}
+
+4)write a c++ program to implement prime or not #include #include // Required for the sqrt() function
+
+// Function to check if a number is prime bool isPrime(int n) { // 0, 1, and negative numbers are not prime numbers if (n <= 1) { return false; } // 2 and 3 are prime numbers if (n <= 3) { return true; } // Eliminate multiples of 2 and 3 if (n % 2 == 0 || n % 3 == 0) { return false; }
+
+// Check for factors from 5 onwards
+// We only need to check up to the square root of n
+// The loop increments by 6 (checking i and i + 2) to skip multiples of 2 and 3
+for (int i = 5; i * i <= n; i = i + 6) {
+    if (n % i == 0 || n % (i + 2) == 0) {
+        return false;
+    }
+}
+
+// If no divisors were found, the number is prime
+return true;
+}
+
+int main() { int num;
+
+// Get input from the user
+std::cout << "Enter a positive integer: ";
+std::cin >> num;
+
+// Check if the number is prime using the function and print the result
+if (isPrime(num)) {
+    std::cout << num << " is a prime number." << std::endl;
+} else {
+    std::cout << num << " is not a prime number." << std::endl;
+}
+
+return 0;
+}
+
+5)write a c++ program to find factorial of a number #include
+
+int main() { int number; long long factorial = 1; // Initialize factorial to 1
+
+std::cout << "Enter a non-negative integer: ";
+std::cin >> number;
+
+// Check for negative input
+if (number < 0) {
+    std::cout << "Factorial is not defined for negative numbers." << std::endl;
+} else {
+    for (int i = 1; i <= number; ++i) {
+        factorial *= i; // Multiply factorial by each number from 1 to 'number'
+    }
+    std::cout << "Factorial of " << number << " = " << factorial << std::endl;
+}
+
+return 0;
+}
+
+6)write a c++ program to code implement factorial functionality by recursion #include
+
+// Function prototype for the recursive factorial function long long factorial(int n);
+
+int main() { int number;
+
+// Prompt the user for input
+std::cout << "Enter a non-negative integer: ";
+std::cin >> number;
+
+// Check if the input is negative
+if (number < 0) {
+    std::cout << "Error: Factorial of a negative number doesn't exist." << std::endl;
+} else {
+    // Call the factorial function and display the result
+    std::cout << "Factorial of " << number << " = " << factorial(number) << std::endl;
+}
+
+return 0;
+}
+
+// Recursive function to calculate factorial long long factorial(int n) { // Base case: if n is 0, return 1 if (n == 0) { return 1; } // Recursive step: n! = n * (n-1)! else { return n * factorial(n - 1); } }
